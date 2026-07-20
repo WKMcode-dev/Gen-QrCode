@@ -1,4 +1,4 @@
-// src\App.tsx
+// src/App.tsx
 
 import { useState } from "react";
 
@@ -6,15 +6,21 @@ import { LockKeyhole, ScanLine, Sparkles } from "lucide-react";
 
 import { Header } from "./components/Header/Header";
 import { QrForm } from "./components/QrForm/QrForm";
+import { QrModeSelector } from "./components/QrModeSelector/QrModeSelector";
 import { QrPreview } from "./components/QrPreview/QrPreview";
+import { WifiQrForm } from "./components/WifiQrForm/WifiQrForm";
 
 import { useTheme } from "./hooks/useTheme";
+
+import type { QrMode } from "./types/qrCode";
 
 import "./App.css";
 
 function App() {
   const [content, setContent] = useState("");
   const [qrContent, setQrContent] = useState("");
+
+  const [qrMode, setQrMode] = useState<QrMode>("content");
 
   const { theme, toggleTheme } = useTheme();
 
@@ -33,9 +39,25 @@ function App() {
     setQrContent("");
   }
 
+  function handleModeChange(mode: QrMode) {
+    setQrMode(mode);
+    setQrContent("");
+  }
+
+  function handleWifiGenerate(value: string) {
+    setQrContent(value);
+  }
+
+  function handleWifiClear() {
+    setQrContent("");
+  }
+
   return (
     <div className="app">
-      <Header theme={theme} onToggleTheme={toggleTheme} />
+      <Header
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       <main className="app-main">
         <section className="app-hero">
@@ -45,12 +67,14 @@ function App() {
               Gerador inteligente
             </span>
 
-            <h2>Transforme qualquer conteúdo em um QR Code.</h2>
+            <h2>
+              Transforme qualquer conteúdo em um QR Code.
+            </h2>
 
             <p>
-              Gere códigos modernos para links, mensagens, credenciais de Wi-Fi
-              e outras informações sem enviar seus dados para servidores
-              externos.
+              Gere códigos modernos para links, mensagens,
+              credenciais de Wi-Fi e outras informações sem
+              enviar seus dados para servidores externos.
             </p>
 
             <div className="app-benefits">
@@ -67,7 +91,9 @@ function App() {
           </div>
 
           <div className="app-steps">
-            <span className="app-steps-label">Como funciona</span>
+            <span className="app-steps-label">
+              Como funciona
+            </span>
 
             <ol>
               <li>
@@ -76,7 +102,10 @@ function App() {
                 <div>
                   <strong>Insira o conteúdo</strong>
 
-                  <p>Cole um link, texto ou credencial.</p>
+                  <p>
+                    Cole um link, texto ou informe os dados
+                    da sua rede Wi-Fi.
+                  </p>
                 </div>
               </li>
 
@@ -86,7 +115,9 @@ function App() {
                 <div>
                   <strong>Gere o código</strong>
 
-                  <p>O QR Code é criado instantaneamente.</p>
+                  <p>
+                    O QR Code é criado instantaneamente.
+                  </p>
                 </div>
               </li>
 
@@ -96,20 +127,37 @@ function App() {
                 <div>
                   <strong>Compartilhe</strong>
 
-                  <p>Copie ou salve o arquivo em SVG.</p>
+                  <p>
+                    Copie ou salve o arquivo em SVG.
+                  </p>
                 </div>
               </li>
             </ol>
           </div>
         </section>
 
-        <section className="app-generator" aria-label="Gerador de QR Code">
-          <QrForm
-            value={content}
-            onChange={setContent}
-            onGenerate={handleGenerate}
-            onClear={handleClear}
-          />
+        <QrModeSelector
+          value={qrMode}
+          onChange={handleModeChange}
+        />
+
+        <section
+          className="app-generator"
+          aria-label="Gerador de QR Code"
+        >
+          {qrMode === "content" ? (
+            <QrForm
+              value={content}
+              onChange={setContent}
+              onGenerate={handleGenerate}
+              onClear={handleClear}
+            />
+          ) : (
+            <WifiQrForm
+              onGenerate={handleWifiGenerate}
+              onClear={handleWifiClear}
+            />
+          )}
 
           <QrPreview value={qrContent} />
         </section>
@@ -118,11 +166,15 @@ function App() {
       <footer className="app-footer">
         <p>
           <strong>WKMcode-dev</strong>
+
           <span aria-hidden="true"> | </span>
+
           gen-QrCode · Todos os direitos reservados.
         </p>
 
-        <p>Seus dados permanecem no seu dispositivo.</p>
+        <p>
+          Seus dados permanecem no seu dispositivo.
+        </p>
       </footer>
     </div>
   );

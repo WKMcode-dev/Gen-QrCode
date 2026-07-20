@@ -1,0 +1,363 @@
+/* src\components\WifiQrForm\WifiQrForm.css */
+
+.wifi-form-container {
+  width: 100%;
+
+  padding: clamp(1.25rem, 3vw, 2rem);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-md);
+}
+
+.wifi-form-header {
+  margin-bottom: 1.75rem;
+}
+
+.wifi-form-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.wifi-form-icon {
+  width: 2.625rem;
+  height: 2.625rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: var(--color-green-soft);
+  color: var(--color-green);
+
+  border-radius: 0.75rem;
+}
+
+.wifi-form-tag {
+  display: block;
+
+  margin-bottom: 0.1875rem;
+
+  color: var(--color-green);
+
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+}
+
+.wifi-form-header h2 {
+  color: var(--color-text);
+
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04rem;
+  line-height: 1.2;
+}
+
+.wifi-form-header > p {
+  max-width: 40rem;
+
+  margin-top: 0.875rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.wifi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.wifi-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wifi-form-field label {
+  color: var(--color-text);
+
+  font-size: 0.8125rem;
+  font-weight: 650;
+}
+
+.wifi-form-input-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.wifi-form-input-wrapper > svg {
+  position: absolute;
+  left: 0.875rem;
+
+  color: var(--color-text-subtle);
+
+  pointer-events: none;
+}
+
+.wifi-form input[type="text"],
+.wifi-form input[type="password"],
+.wifi-form select {
+  width: 100%;
+  min-height: 2.875rem;
+
+  padding: 0.75rem 0.875rem;
+
+  background: var(--color-input);
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+
+  font-size: 0.875rem;
+}
+
+.wifi-form-input-wrapper > svg {
+  position: absolute;
+  left: 1rem;
+
+  color: var(--color-text-subtle);
+
+  pointer-events: none;
+}
+
+.wifi-form-input-wrapper input[type="text"],
+.wifi-form-input-wrapper input[type="password"] {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.wifi-form input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.wifi-form input:hover,
+.wifi-form select:hover {
+  border-color: var(--color-text-subtle);
+}
+
+.wifi-form input:focus,
+.wifi-form select:focus {
+  background: var(--color-surface);
+
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 3px
+    var(--color-primary-soft);
+}
+
+.wifi-form-password-toggle {
+  position: absolute;
+  right: 0.375rem;
+
+  width: 2.125rem;
+  height: 2.125rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  color: var(--color-text-subtle);
+
+  border-radius: 0.5rem;
+}
+
+.wifi-form-password-toggle:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.wifi-form-hidden-network {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  padding: 0.875rem;
+
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  cursor: pointer;
+}
+
+.wifi-form-hidden-network > input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wifi-form-checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-top: 0.125rem;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.3125rem;
+}
+
+.wifi-form-hidden-network
+  input:checked
+  + .wifi-form-checkbox {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.wifi-form-checkbox span {
+  width: 0.375rem;
+  height: 0.625rem;
+
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+
+  transform:
+    rotate(45deg)
+    translate(-1px, -1px);
+}
+
+.wifi-form-hidden-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+}
+
+.wifi-form-hidden-content strong {
+  color: var(--color-text);
+
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.wifi-form-hidden-content small {
+  color: var(--color-text-subtle);
+
+  font-size: 0.6875rem;
+  line-height: 1.5;
+}
+
+.wifi-form-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4375rem;
+
+  color: var(--color-text-subtle);
+
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.wifi-form-info svg {
+  flex-shrink: 0;
+
+  margin-top: 0.0625rem;
+
+  color: var(--color-green);
+}
+
+.wifi-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.wifi-form-clear-button,
+.wifi-form-generate-button {
+  min-height: 2.75rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.6875rem 1rem;
+
+  border-radius: var(--radius-md);
+
+  font-size: 0.8125rem;
+  font-weight: 650;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.wifi-form-clear-button {
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+
+  border: 1px solid var(--color-border-strong);
+}
+
+.wifi-form-clear-button:hover:not(:disabled) {
+  background: var(--color-red-soft);
+  color: var(--color-red);
+
+  border-color: var(--color-red-border);
+}
+
+.wifi-form-generate-button {
+  min-width: 12rem;
+
+  background: var(--color-text);
+  color: var(--color-surface);
+}
+
+.wifi-form-generate-button:hover:not(:disabled) {
+  background: var(--color-green);
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.wifi-form-clear-button:disabled,
+.wifi-form-generate-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.4;
+}
+
+@media (max-width: 520px) {
+  .wifi-form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .wifi-form-clear-button,
+  .wifi-form-generate-button {
+    width: 100%;
+  }
+
+  .wifi-form-generate-button {
+    grid-row: 1;
+  }
+}

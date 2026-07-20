@@ -1,0 +1,112 @@
+/* src\components\QrModeSelector\QrModeSelector.css */
+
+.qr-mode-selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
+
+  margin-bottom: 1.25rem;
+  padding: 0.375rem;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.qr-mode-option {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.75rem 0.875rem;
+
+  background: transparent;
+  color: var(--color-text-muted);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+
+  text-align: left;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.qr-mode-option > svg {
+  flex-shrink: 0;
+}
+
+.qr-mode-option > span {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.qr-mode-option strong {
+  color: inherit;
+
+  font-size: 0.8125rem;
+  font-weight: 650;
+}
+
+.qr-mode-option small {
+  overflow: hidden;
+
+  color: var(--color-text-subtle);
+
+  font-size: 0.6875rem;
+  line-height: 1.4;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qr-mode-option:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.qr-mode-option.is-active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+
+  border-color: var(--color-primary-border);
+
+  box-shadow: var(--shadow-xs);
+}
+
+.qr-mode-option:focus-visible {
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: 2px;
+}
+
+@media (max-width: 620px) {
+  .qr-mode-option small {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .qr-mode-option {
+    justify-content: center;
+
+    padding-inline: 0.5rem;
+  }
+
+  .qr-mode-option > span {
+    text-align: center;
+  }
+
+  .qr-mode-option strong {
+    font-size: 0.75rem;
+  }
+}
