@@ -13,8 +13,10 @@
     "windows": [
       {
         "title": "gen-qrcode",
-        "width": 500,
-        "height": 700,
+        "width": 1280,
+        "height": 860,
+        "minWidth": 360,
+        "minHeight": 640,
         "resizable": true,
         "fullscreen": false
       }
@@ -26,6 +28,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "createUpdaterArtifacts": true,
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -33,8 +36,17 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
+    "category": "Utility",
+    "shortDescription": "Estúdio privado para criação de QR Codes",
+    "longDescription": "Crie e personalize QR Codes para textos, redes Wi-Fi, contatos, e-mails, telefones, SMS e localizações.",
     "android": {
       "debugApplicationIdSuffix": ".debug"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "endpoints": ["https://github.com/WKMcode-dev/Gen-QrCode/releases/latest/download/latest.json"],
+      "pubkey": "SUBSTITUA_PELA_CHAVE_PUBLICA_DO_TAURI"
     }
   }
 }

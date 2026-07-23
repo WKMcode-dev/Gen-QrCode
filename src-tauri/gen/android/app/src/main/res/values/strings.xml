@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">"gen-qrcode"</string>
+    <string name="main_activity_title">"gen-qrcode"</string>
+</resources>

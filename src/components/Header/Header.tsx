@@ -5,6 +5,7 @@ import { QrCode } from "lucide-react";
 import type { Theme } from "../../hooks/useTheme";
 
 import { ThemeToggle } from "../../ThemeToggle/ThemeToggle";
+import { UpdateChecker } from "../UpdateChecker/UpdateChecker";
 
 import "./Header.css";
 
@@ -18,7 +19,7 @@ export function Header({
   onToggleTheme,
 }: HeaderProps) {
   return (
-    <header className="header">
+    <><UpdateChecker /><header className="header">
       <div className="header-container">
         <div className="header-brand">
           <div className="header-logo" aria-hidden="true">
@@ -47,6 +48,6 @@ export function Header({
           />
         </div>
       </div>
-    </header>
+    </header></>
   );
 }

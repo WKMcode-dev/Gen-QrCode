@@ -204,6 +204,7 @@
   align-items: start;
   gap: clamp(1.25rem, 3vw, 2rem);
 }
+.generator-controls{display:grid;gap:1.25rem}.generator-controls>.card-section{width:100%}
 
 .app-footer {
   width: min(1280px, calc(100% - 3rem));

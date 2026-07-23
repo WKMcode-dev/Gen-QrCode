@@ -109,6 +109,7 @@
 }
 
 .qr-preview-code {
+  position: relative;
   width: min(100%, 16.5rem);
   aspect-ratio: 1;
 
@@ -360,3 +361,4 @@
     grid-template-columns: 1fr;
   }
 }
+.qr-logo{position:absolute;left:38%;top:38%;width:24%;height:24%;display:flex;align-items:center;justify-content:center;padding:2%;border-radius:14%}.qr-logo img{width:100%;height:100%;object-fit:contain}.export-grid{width:min(100%,30rem);display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}.export-grid button{display:flex;align-items:center;justify-content:center;gap:.35rem;padding:.65rem;background:var(--color-primary-soft);color:var(--color-primary);border:1px solid var(--color-primary-border);border-radius:.65rem;font-size:.7rem;font-weight:700}.export-grid button:hover{background:var(--color-primary);color:white}
